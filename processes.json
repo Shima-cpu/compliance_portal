@@ -23,9 +23,8 @@
       "reset the client"
     ],
     "when_to_use": "Use this process when a client has a Forgery flag in SumSub and you need to check the reason and decide whether the client's verification should be reset.",
-    "warnings": [
+    "warning": [
       "Reset the applicant only when you cannot independently confirm the document authenticity and the internal process allows reset.",
-      "Do not upload real client data or unmasked CRM/SumSub screenshots to a public repository. Use test clients or masked screenshots only."
     ],
     "steps": [
       {
