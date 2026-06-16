@@ -173,7 +173,7 @@ def render_process(process: dict) -> None:
 
                 image_path = step.get("image")
                 if image_path and Path(image_path).exists():
-                    st.image(image_path, use_container_width=True)
+                    st.image(image_path, use_container_width=800)
                 elif image_path:
                     st.caption(f"Image not found: {image_path}")
 
