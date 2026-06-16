@@ -145,70 +145,73 @@ def search_processes(all_processes: list[dict], query: str) -> list[dict]:
 st.title(APP_TITLE)
 st.caption("Search internal processes and follow step-by-step guides.")
 
-with st.sidebar:
-    st.header("Search")
-    query = st.text_input(
-        "Type process name, keyword, or question",
-        placeholder="Example: forgery reset",
-    )
+top_left, top_right = st.columns([6, 1])
 
+with top_right:
     if st.button("Logout"):
         st.session_state.authenticated = False
         st.rerun()
 
+st.markdown("---")
+
+query = st.text_input(
+    "Search process",
+    placeholder="Example: SOF amount, forgery reset, sumsub reset...",
+)
+
 results = search_processes(processes, query)
 
-left_col, right_col = st.columns([1, 2], gap="large")
+if not results:
+    st.info("No matching processes found.")
+    st.stop()
 
-with left_col:
-    st.subheader("Results")
+process_options = [process["title"] for process in results]
 
-    if not results:
-        st.info("No matching processes found.")
-        selected_process = None
-    else:
-        options = {process["title"]: process for process in results}
-        selected_title = st.radio(
-            "Select a process",
-            options=list(options.keys()),
-            label_visibility="collapsed",
-        )
-        selected_process = options[selected_title]
+selected_title = st.selectbox(
+    f"Select process ({len(results)} result(s) found)",
+    process_options,
+)
 
-        st.caption(f"{len(results)} result(s) found")
+selected_process = next(
+    process for process in results if process["title"] == selected_title
+)
 
-with right_col:
-    if selected_process:
-        st.header(selected_process["title"])
-        st.caption(selected_process.get("category", ""))
-        st.write(selected_process.get("description", ""))
+st.markdown("---")
 
-        when_to_use = selected_process.get("when_to_use")
-        if when_to_use:
-            st.subheader("When to use")
-            st.write(when_to_use)
+st.header(selected_process["title"])
+st.caption(selected_process.get("category", ""))
+st.write(selected_process.get("description", ""))
 
-        warnings = selected_process.get("warnings", [])
-        if warnings:
-            st.subheader("Warnings")
-            for warning in warnings:
-                st.warning(warning)
+when_to_use = selected_process.get("when_to_use")
+if when_to_use:
+    st.subheader("When to use")
+    st.write(when_to_use)
 
-        steps = selected_process.get("steps", [])
-        if steps:
-            st.subheader("Step-by-step guide")
-            for index, step in enumerate(steps, start=1):
-                with st.expander(f"Step {index}: {step.get('title', 'Untitled step')}", expanded=index == 1):
-                    st.write(step.get("text", ""))
+warnings = selected_process.get("warnings", [])
+if warnings:
+    st.subheader("Warnings")
+    for warning in warnings:
+        st.warning(warning)
 
-                    image_path = step.get("image")
-                    if image_path and Path(image_path).exists():
-                        st.image(image_path, use_container_width=True)
-                    elif image_path:
-                        st.caption(f"Image not found: {image_path}")
+steps = selected_process.get("steps", [])
+if steps:
+    st.subheader("Step-by-step guide")
 
-        related_templates = selected_process.get("related_templates", [])
-        if related_templates:
-            st.subheader("Related templates")
-            for template in related_templates:
-                st.code(template, language="text")
+    for index, step in enumerate(steps, start=1):
+        with st.expander(
+            f"Step {index}: {step.get('title', 'Untitled step')}",
+            expanded=index == 1,
+        ):
+            st.write(step.get("text", ""))
+
+            image_path = step.get("image")
+            if image_path and Path(image_path).exists():
+                st.image(image_path, use_container_width=True)
+            elif image_path:
+                st.caption(f"Image not found: {image_path}")
+
+related_templates = selected_process.get("related_templates", [])
+if related_templates:
+    st.subheader("Related templates")
+    for template in related_templates:
+        st.code(template, language="text")
