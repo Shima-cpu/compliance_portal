@@ -169,7 +169,7 @@ def render_process(process: dict) -> None:
                 f"Step {index}: {step.get('title', 'Untitled step')}",
                 expanded=index == 1,
             ):
-                st.write(step.get("text", ""))
+                st.markdown(step.get("text", ""))
 
                 image_path = step.get("image")
                 if image_path and Path(image_path).exists():
