@@ -173,13 +173,18 @@ if query:
             if st.button(process["title"], key=f"result_{process['id']}"):
                 st.session_state.selected_process_id = process["id"]
 
-    if "selected_process_id" not in st.session_state:
-        st.session_state.selected_process_id = results[0]["id"]
+   result_ids = [process["id"] for process in results]
 
-    selected_process = next(
-        process for process in results
-        if process["id"] == st.session_state.selected_process_id
-    )
+if (
+    "selected_process_id" not in st.session_state
+    or st.session_state.selected_process_id not in result_ids
+):
+    st.session_state.selected_process_id = results[0]["id"]
+
+selected_process = next(
+    process for process in results
+    if process["id"] == st.session_state.selected_process_id
+)
 else:
     st.info("Start typing to search for a process.")
     st.stop()
