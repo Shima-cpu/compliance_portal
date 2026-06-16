@@ -3,7 +3,7 @@
     "id": "sumsub_forgery_client_reset",
     "title": "SumSub Forgery client reset",
     "category": "Compliance / SumSub",
-    "description": "How to check Forgery in SumSub and reset the client's verification if needed.",
+    "description": "How to check a Forgery rejection in SumSub and reset the client's verification if reset is required.",
     "keywords": [
       "forgery reset",
       "forgery",
@@ -21,59 +21,56 @@
       "verification reset",
       "sumsub reset",
       "reset sumsub",
-      "reset the client"
+      "reset the client",
+      "forgery sumsub",
+      "document forgery",
+      "reset applicant"
     ],
-    "when_to_use": "Use this process when a client has a Forgery flag in SumSub and you need to check the reason and decide whether the client's verification should be reset.",
+    "when_to_use": "Use this process when a client is rejected in SumSub with a Forgery reject label and you need to check the reason, review the submitted document, and reset the applicant if needed.",
     "steps": [
       {
         "title": "Open Applicants - Individuals",
-        "text": "In SumSub, open the left-side menu and go to Applicants -> Individuals.",
-        "image": "assets/page-1.png"
+        "text": "In SumSub, open the left-side navigation menu.\n\nGo to:\n\n```text\nApplicants → Individuals\n```\n\nThis section is used to search and open individual client profiles.",
+        "image": "assets/f1.png"
       },
       {
         "title": "Search for the client",
-        "text": "Enter the client ID in the search bar at the top of the Individuals page. After the result appears, hover over the client row/link and open the client page.",
-        "image": "assets/page-1.png"
+        "text": "Enter the client ID in the search bar at the top of the Individuals page.\n\nMake sure the client appears in the search results and that the Review status is Rejected.\n\nAlso check that the Reject label is Forgery.",
+        "image": "assets/f2.png"
       },
       {
         "title": "Check Notes",
-        "text": "On the client page, check the Notes section. It contains a short description of the Forgery type.",
-        "image": "assets/page-2.png"
+        "text": "Open the client profile and check the Notes section.\n\nThe note usually contains a short explanation of the Forgery reason.\n\nExample:\n\n```text\nMaterial → Polycarbonate / Laminated Layers → Document printed on plain plastic\n```\n\nUse this note to understand what exactly triggered the rejection.",
+        "image": "assets/f3.png"
       },
       {
-        "title": "Generate AI overview if needed",
-        "text": "Find the Overview by Summy AI Copilot section and click Generate overview if you need an additional AI summary.",
-        "image": "assets/page-2.png"
+        "title": "Generate and review AI overview",
+        "text": "Find the Overview by Summy AI Copilot section.\n\nClick Generate overview if the overview has not been generated yet.\n\nAfter generation, read the summary carefully. It may explain:\n\n- current applicant status;\n- document type affected by Forgery;\n- reason why the document was considered suspicious;\n- what the client needs to submit next.\n\nUse this information as additional context before deciding whether reset is required.",
+        "image": "assets/f4.png",
+        "images": [
+          "assets/f4.png",
+          "assets/f4.1.png"
+        ]
       },
       {
-        "title": "Check documents marked as Forgery",
-        "text": "Go to Documents. Check Identity document and Other documents / Proof of address. Scroll until you find the document marked with the Forgery label.",
-        "image": "assets/page-2.png"
+        "title": "Check the document marked as Forgery",
+        "text": "Go to the Documents section.\n\nOpen the document that has the Forgery label.\n\nForgery can be detected on different document types, for example:\n\n- Identity document;\n- Proof of address;\n- other submitted documents.\n\nReview the document and the rejection message. Check whether it is possible to independently confirm that the document is genuine or whether the Forgery reason cannot be resolved manually.",
+        "image": "assets/f5.png"
       },
       {
-        "title": "Decide whether reset is needed",
-        "text": "Forgery can be marked on ID or POA. Review the document and decide whether it is possible to independently confirm its authenticity. If not possible, proceed with client reset.",
-        "image": "assets/page-2.png"
-      },
-      {
-        "title": "Open reset menu",
-        "text": "At the top of the page, find the three-dot menu to the right of Change applicant status and click it.",
-        "image": "assets/page-2.png"
+        "title": "Open the applicant action menu",
+        "text": "If reset is required, go to the top action panel of the applicant page.\n\nFind the three-dot menu next to Change applicant status.\n\nClick the three-dot menu to open additional applicant actions.",
+        "image": "assets/f6.png"
       },
       {
         "title": "Select Reset applicant",
-        "text": "In the dropdown menu, select Reset applicant.",
-        "image": "assets/page-3.png"
+        "text": "In the dropdown menu, select:\n\n```text\nReset applicant\n```\n\nThis action starts the applicant reset flow and allows the client to pass verification again.",
+        "image": "assets/f7.png"
       },
       {
         "title": "Confirm reset",
-        "text": "In the confirmation window, click Reset applicant again.",
-        "image": "assets/page-3.png"
-      },
-      {
-        "title": "Verification is reset",
-        "text": "The client's verification is reset. In the Client Area, the client will be able to pass verification again if needed.",
-        "image": "assets/page-3.png"
+        "text": "A confirmation window will appear.\n\nRead the warning carefully. SumSub warns that the applicant was finally blocked by the system and that resetting suspicious documents can create additional risks.\n\nIf reset is still required according to the internal process, click:\n\n```text\nReset applicant\n```\n\nAfter reset, the client will be able to pass verification again in the Members Area.",
+        "image": "assets/f8.png"
       }
     ],
     "related_templates": []
