@@ -109,5 +109,79 @@
     }
   ],
   "related_templates": []
+},
+{
+  "id": "third_party_deposits_check",
+  "title": "Third-party Deposits Check",
+  "category": "Compliance / TPD",
+  "description": "",
+  "keywords": [
+    "TPD",
+    "Third Party Deposit",
+    "Third-party deposit",
+    "TPD check",
+    "Third party",
+    "ТПД",
+    "тпд",
+    "депозит третьего лица",
+    "third party card",
+    "TPD docs",
+    "TPD threshold",
+    "TPD refund",
+    "refund",
+    "third-party refund",
+    "документы ТПД",
+    "рефанд ТПД",
+    "карта третьего лица"
+  ],
+  "when_to_use": "Use this process to review third-party deposits, check refund availability, verify KYC, determine whether TPD documents are required, and send the appropriate ticket to the client.",
+  "steps": [
+    {
+      "title": "Identify the client source",
+      "text": "TPD processing is performed on a daily basis. Clients can come from two sources:\n\n• TPD table — the main source for processing. New clients are added by Antifraud when new cases are detected.\n• Teams channel RF AML - Payments BZ — additional source where the Payments team may ask to process a specific client.\n\nExample Teams notification:\nПривет, 14398323 пополнение ТПД 100 % Payabl (Visa) BZ 1010 USD 440043******1839"
+    },
+    {
+      "title": "Verify third-party deposit amount",
+      "text": "Take the Client ID from the TPD table or Teams notification and verify the actual TPD in CRM.\n\nOpen CRM → IN/OUT → Operations.\n\nYou can check it by:\n• searching for the Autodeposit operation with the third-party card;\n• or opening any Withdrawal request, which is usually more convenient.\n\nIn Withdrawal request, review the Payment details of the depositing table at the bottom of the page. Third-party deposits are highlighted in red.\n\nPay attention to:\n• Deposit Amount (USD);\n• Available for refund."
+    },
+    {
+      "title": "Check refund availability",
+      "text": "Make sure the client can perform a refund from the Members Area.\n\nOpen the client's Members Area using backdoor access or click Go to members area from the Withdrawal request page or client card in CRM.\n\nSelect Limited and click Proceed.\n\nThen go to:\nFunds → Withdraw funds → VISA/MasterCard (Refund) → Go to.\n\nIn Select your payment card, find the third-party card and confirm that refund is available.\n\nThis is important because later we may need to instruct the client to make the refund independently, without requesting a manual refund from Payments."
+    },
+    {
+      "title": "Check KYC",
+      "text": "Check the client's KYC documents.\n\nDocuments must be valid at the moment of review.\n\nIf one or more documents are expired, include an актуальный KYC request in the ticket to the client."
+    },
+    {
+      "title": "Check payment system threshold",
+      "text": "Compare the third-party deposit amount with the current thresholds by payment system.\n\nCurrent rules:\n• Payabl — documents are not requested up to 1000 USD.\n• Other payment systems — documents are not requested up to 3000 USD.\n\nIf the TPD amount is below the threshold:\n• inform the client about the situation;\n• direct the client to refund;\n• warn the client not to use third-party payment details again;\n• request KYC if needed.\n\nIf the TPD amount exceeds the threshold, request TPD documents before sending the client to refund."
+    },
+    {
+      "title": "Request TPD documents if threshold is exceeded",
+      "text": "For card deposits, request the following documents:\n\n• Explanation of the reason for using third-party payment details;\n• ID or passport of the third party;\n• Current proof of address of the third party, not older than 6 months;\n• Power of Attorney from the third party;\n• Selfie of the third party holding ID/passport and Power of Attorney;\n• Photo of the bank card."
+    },
+    {
+      "title": "Power of Attorney template",
+      "text": "I, the sender of the funds________________________ (Name, Surname), ID/Passport Number ____________________ agreed to transfer the amount of funds from my personal payment details with the number: __________________________________________ to my ______________________________(relation who is the owner of members area to third party), __________________________________(Name, Surname), the receiver, on his/her trading account(s): _______________________________________ on RoboForex Ltd. Company. I authorize the receiver to use the deposited funds, by his/her own will, on his/her trading account(s). The receiver can perform any trading, transfer, withdrawal of funds with the deposited amount without any restrictions from my side. I do not have any intent in using or returning the deposited funds. Also, I do understand that the company does not compensate for losses incurred due to the forced closing of positions on the client’s account. I agree with all internal policies of receiver RoboForex Ltd. company, and I do not have any claims concerning the rules of removal of funds. RoboForex Ltd cannot under any circumstances be held liable for any conditions coming from my consent to trust the funds to the receiver.\n\nSender (Name, Surname): _____________________________\nDate: _____________________________________________\nSignature: __________________________________________"
+    },
+    {
+      "title": "Check chargeback timeframe",
+      "text": "The maximum timeframe during which the cardholder can initiate a chargeback is 540 days / 1.5 years.\n\nIf the third-party deposit is older than 540 days, TPD documents are not requested because the chargeback risk is considered expired.\n\nIn this case, only inform the client not to use third-party payment details again."
+    },
+    {
+      "title": "Send ticket to the client",
+      "text": "After determining the request type, use the Compliance request templates application.\n\nUse one of the following templates:\n• TPD informing;\n• TPD informing + KYC;\n• TPD docs request;\n• TPD docs request + KYC.\n\nThe application helps generate the message by selecting the request type, entering the client name, number of third-party cards/accounts, card/account number, and third-party name.\n\nSend the ticket with subject:\nNotice Regarding Third-Party Account Usage\n\nUse folder:\nBZ EN Deposit requests."
+    },
+    {
+      "title": "Repeated violations",
+      "text": "If the client ignores warnings about third-party payment details multiple times, the client may be terminated after several warnings."
+    }
+  ],
+  "related_templates": [
+    "TPD informing",
+    "TPD informing + KYC",
+    "TPD docs request",
+    "TPD docs request + KYC"
+  ]
 }
 ]
