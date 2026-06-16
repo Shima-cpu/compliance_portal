@@ -77,5 +77,37 @@
       }
     ],
     "related_templates": []
-  }
+  },
+  {
+  "id": "sof_thresholds",
+  "title": "SOF thresholds",
+  "category": "Compliance / SOF",
+  "description": "Table with SOW/SOF request thresholds by payment system, bank, card, or payment provider.",
+  "keywords": [
+    "amount",
+    "SOF",
+    "SOF amount",
+    "amount SOF",
+    "количество",
+    "СОФ",
+    "SOW",
+    "SOW amount",
+    "amount SOW",
+    "объем SOW",
+    "threshold",
+    "thresholds",
+    "лимит",
+    "сумма",
+    "payment system"
+  ],
+  "when_to_use": "Use this process when you need to check from which amount SOW/SOF should be requested for a specific payment system or provider.",
+  "steps": [
+    {
+      "title": "Check the SOF/SOW threshold table",
+      "text": "Find the relevant payment system, bank, card, or provider in the table and check the overall amount to request SOW/SOF.",
+      "image": "assets/sof_thresholds.png"
+    }
+  ],
+  "related_templates": []
+}
 ]
