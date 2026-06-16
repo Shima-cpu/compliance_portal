@@ -1,0 +1,84 @@
+[
+  {
+    "id": "sumsub_forgery_client_reset",
+    "title": "SumSub Forgery client reset",
+    "category": "Compliance / SumSub",
+    "description": "How to check Forgery in SumSub and reset the client's verification if needed.",
+    "keywords": [
+      "forgery reset",
+      "forgery",
+      "reset forgery",
+      "сброс forgery",
+      "forgery сброс",
+      "sumsub",
+      "reset",
+      "сброс",
+      "сброс верификации",
+      "сбросить верификацию",
+      "reset client",
+      "client reset",
+      "verification reset",
+      "sumsub reset",
+      "reset sumsub",
+      "reset the client"
+    ],
+    "when_to_use": "Use this process when a client has a Forgery flag in SumSub and you need to check the reason and decide whether the client's verification should be reset.",
+    "warnings": [
+      "Reset the applicant only when you cannot independently confirm the document authenticity and the internal process allows reset.",
+      "Do not upload real client data or unmasked CRM/SumSub screenshots to a public repository. Use test clients or masked screenshots only."
+    ],
+    "steps": [
+      {
+        "title": "Open Applicants - Individuals",
+        "text": "In SumSub, open the left-side menu and go to Applicants -> Individuals.",
+        "image": "assets/page-1.png"
+      },
+      {
+        "title": "Search for the client",
+        "text": "Enter the client ID in the search bar at the top of the Individuals page. After the result appears, hover over the client row/link and open the client page.",
+        "image": "assets/page-1.png"
+      },
+      {
+        "title": "Check Notes",
+        "text": "On the client page, check the Notes section. It contains a short description of the Forgery type.",
+        "image": "assets/page-2.png"
+      },
+      {
+        "title": "Generate AI overview if needed",
+        "text": "Find the Overview by Summy AI Copilot section and click Generate overview if you need an additional AI summary.",
+        "image": "assets/page-2.png"
+      },
+      {
+        "title": "Check documents marked as Forgery",
+        "text": "Go to Documents. Check Identity document and Other documents / Proof of address. Scroll until you find the document marked with the Forgery label.",
+        "image": "assets/page-2.png"
+      },
+      {
+        "title": "Decide whether reset is needed",
+        "text": "Forgery can be marked on ID or POA. Review the document and decide whether it is possible to independently confirm its authenticity. If not possible, proceed with client reset.",
+        "image": "assets/page-2.png"
+      },
+      {
+        "title": "Open reset menu",
+        "text": "At the top of the page, find the three-dot menu to the right of Change applicant status and click it.",
+        "image": "assets/page-2.png"
+      },
+      {
+        "title": "Select Reset applicant",
+        "text": "In the dropdown menu, select Reset applicant.",
+        "image": "assets/page-3.png"
+      },
+      {
+        "title": "Confirm reset",
+        "text": "In the confirmation window, click Reset applicant again.",
+        "image": "assets/page-3.png"
+      },
+      {
+        "title": "Verification is reset",
+        "text": "The client's verification is reset. In the Client Area, the client will be able to pass verification again if needed.",
+        "image": "assets/page-3.png"
+      }
+    ],
+    "related_templates": []
+  }
+]
