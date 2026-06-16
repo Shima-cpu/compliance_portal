@@ -23,9 +23,7 @@
       "reset the client"
     ],
     "when_to_use": "Use this process when a client has a Forgery flag in SumSub and you need to check the reason and decide whether the client's verification should be reset.",
-    "warning": [
-      "Reset the applicant only when you cannot independently confirm the document authenticity and the internal process allows reset.",
-    ],
+    
     "steps": [
       {
         "title": "Open Applicants - Individuals",
