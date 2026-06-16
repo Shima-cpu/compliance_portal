@@ -161,20 +161,28 @@ query = st.text_input(
 
 results = search_processes(processes, query)
 
-if not results:
-    st.info("No matching processes found.")
+selected_process = None
+
+if query:
+    if not results:
+        st.info("No matching processes found.")
+        st.stop()
+
+    with st.expander(f"Search results ({len(results)})", expanded=True):
+        for index, process in enumerate(results):
+            if st.button(process["title"], key=f"result_{process['id']}"):
+                st.session_state.selected_process_id = process["id"]
+
+    if "selected_process_id" not in st.session_state:
+        st.session_state.selected_process_id = results[0]["id"]
+
+    selected_process = next(
+        process for process in results
+        if process["id"] == st.session_state.selected_process_id
+    )
+else:
+    st.info("Start typing to search for a process.")
     st.stop()
-
-process_options = [process["title"] for process in results]
-
-selected_title = st.selectbox(
-    f"Select process ({len(results)} result(s) found)",
-    process_options,
-)
-
-selected_process = next(
-    process for process in results if process["title"] == selected_title
-)
 
 st.markdown("---")
 
